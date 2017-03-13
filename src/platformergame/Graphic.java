@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 public class Graphic {
 
 	PlatformMain pm;
-	
+
 	public Image spikeUp = new ImageIcon(".\\GameImages\\spikeUp.png").getImage();
 	public Image spikeDown = new ImageIcon(".\\GameImages\\spikeDown.png").getImage();
 	public Image spikeRight = new ImageIcon(".\\GameImages\\spikeRight.png").getImage();
@@ -32,7 +32,7 @@ public class Graphic {
 	}
 
 	public void graphics(Graphics g) {
-		
+
 		// Menu graphics
 		if (pm.enter == false && pm.enterCount == 0) {
 
@@ -49,6 +49,8 @@ public class Graphic {
 
 		// Game graphics
 		else {
+
+			// Background
 			if (pm.bgTick % 2 == 0) {
 				g.drawImage(BackgroundFrame1, (0 - pm.player.x) / 7, 0, null);
 			} else {
@@ -59,18 +61,22 @@ public class Graphic {
 				g.fillRect(pm.blueScreen.x, pm.blueScreen.y, pm.blueScreen.width, pm.blueScreen.height);
 			}
 
+			// redField
 			g.setColor(Color.red);
 			for (int i = 0; i < pm.redField.size(); i++) {
-				g.fillRect(pm.redField.get(i).x, pm.redField.get(i).y, pm.redField.get(i).width, pm.redField.get(i).height);
+				g.fillRect(pm.redField.get(i).x, pm.redField.get(i).y, pm.redField.get(i).width,
+						pm.redField.get(i).height);
 			}
 
+			// Blue block
 			g.setColor(Color.blue);
 			g.fillRect(pm.block.x, pm.block.y, pm.block.width, pm.block.height);
 
+			// Obstacles outline
 			g.setColor(Color.black);
 			for (int i = 0; i < pm.obstacle.size(); i++) {
-				g.fillRoundRect(pm.obstacle.get(i).x, pm.obstacle.get(i).y, pm.obstacle.get(i).width, pm.obstacle.get(i).height, 40,
-						40);
+				g.fillRoundRect(pm.obstacle.get(i).x, pm.obstacle.get(i).y, pm.obstacle.get(i).width,
+						pm.obstacle.get(i).height, 40, 40);
 
 				if (pm.obstacle.get(i).y + pm.obstacle.get(i).height > 800) {
 					g.fillRect(pm.obstacle.get(i).x, 790, pm.obstacle.get(i).width, 20);
@@ -83,6 +89,7 @@ public class Graphic {
 			g.fillRect(pm.floor.x, pm.floor.y + 5, pm.floor.width, pm.floor.height);
 			g.fillRect(pm.roof.x, pm.roof.y, pm.roof.width, pm.roof.height);
 
+			// Obstacles inner
 			for (int i = 0; i < pm.obstacle.size(); i++) {
 				g.fillRoundRect(pm.obstacle.get(i).x + 4, pm.obstacle.get(i).y + 4, pm.obstacle.get(i).width - 8,
 						pm.obstacle.get(i).height - 8, 40, 40);
@@ -91,6 +98,8 @@ public class Graphic {
 					g.fillRect(pm.obstacle.get(i).x + 4, 780, pm.obstacle.get(i).width - 8, 40);
 				}
 			}
+
+			// Spikes
 			g.setColor(Color.red);
 			for (int i = 0; i < pm.spikes.size(); i++) {
 
@@ -101,6 +110,7 @@ public class Graphic {
 						g.drawImage(spikeDown, pm.spikes.get(i).x + 33 * j - 12, pm.spikes.get(i).y - 15, null);
 					}
 				}
+
 				for (int j = 0; j - 1 < pm.spikes.get(i).height / 33; j++) {
 					if (pm.spikes.get(i).width == 10) {
 						g.drawImage(spikeLeft, pm.spikes.get(i).x - 20, pm.spikes.get(i).y + 33 * j - 12, null);
@@ -113,6 +123,8 @@ public class Graphic {
 			}
 
 			// g.fillRect(player.x, player.y, player.width, player.height);
+
+			// Player Animation gibberish...
 			if (pm.dir == 0) {
 				if (pm.yMotion == 0 && pm.canJump == true) {
 					g.drawImage(rightFrame1, pm.player.x, pm.player.y - 10, null);

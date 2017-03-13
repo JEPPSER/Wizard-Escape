@@ -82,8 +82,16 @@ public class ObjectMovement {
 			}
 		}
 
+		// level 8
+		if (pm.levelCount == 8) {
+
+			pm.blueScreen.x = 0;
+		}
+
 		// level 9
 		if (pm.levelCount == 9) {
+
+			pm.blueScreen.x = 1600;
 
 			pm.roof.y = -300;
 
@@ -117,8 +125,16 @@ public class ObjectMovement {
 			}
 		}
 
+		// level 10
+		if (pm.levelCount == 10) {
+
+			pm.roof.y = 0;
+		}
+
 		// level 11
 		if (pm.levelCount == 11) {
+
+			pm.blueScreen.x = 0;
 
 			if (pm.spikes.get(1).x <= 1200 && pm.spikes.get(1).y % 2 == 0) {
 

@@ -19,7 +19,7 @@ public class Collision {
 				pm.deathCount += 1;
 			}
 		}
-		
+
 		// Obstacles
 		for (int i = 0; i < pm.obstacle.size(); i++) {
 
