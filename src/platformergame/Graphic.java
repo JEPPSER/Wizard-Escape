@@ -60,6 +60,15 @@ public class Graphic {
 			if (pm.blueScreen.x == 0) {
 				g.fillRect(pm.blueScreen.x, pm.blueScreen.y, pm.blueScreen.width, pm.blueScreen.height);
 			}
+			
+			// Last Level
+			if (pm.levelCount == 12){
+				
+				g.setColor(Color.black);
+				g.setFont(new Font("Courier New", 1, 40));
+				g.drawString("Congratulations! You finished all levels in this demo." , 200, 200);
+				g.drawString("Go right to get back to the menu.", 200, 300);
+			}
 
 			// redField
 			g.setColor(Color.red);
@@ -126,13 +135,13 @@ public class Graphic {
 
 			// Player Animation gibberish...
 			if (pm.dir == 0) {
-				if (pm.yMotion == 0 && pm.canJump == true) {
+				if (pm.yMotion == 0 && pm.canJump) {
 					g.drawImage(rightFrame1, pm.player.x, pm.player.y - 10, null);
 				} else {
 					g.drawImage(rightJump, pm.player.x, pm.player.y - 10, null);
 				}
 			} else if (pm.xMotion < 0) {
-				if (pm.yMotion == 0 && pm.canJump == true) {
+				if (pm.yMotion == 0 && pm.canJump) {
 					if (pm.animTick % 2 == 0) {
 						g.drawImage(leftFrame1, pm.player.x - 10, pm.player.y - 10, null);
 					} else {
@@ -142,7 +151,7 @@ public class Graphic {
 					g.drawImage(leftJump, pm.player.x - 10, pm.player.y - 10, null);
 				}
 			} else if (pm.xMotion > 0) {
-				if (pm.yMotion == 0 && pm.canJump == true) {
+				if (pm.yMotion == 0 && pm.canJump) {
 					if (pm.animTick % 2 == 0) {
 						g.drawImage(rightFrame1, pm.player.x, pm.player.y - 10, null);
 					} else {
@@ -151,14 +160,14 @@ public class Graphic {
 				} else {
 					g.drawImage(rightJump, pm.player.x, pm.player.y - 10, null);
 				}
-			} else if (pm.press == true && pm.dir == 'A') {
-				if (pm.yMotion == 0 && pm.canJump == true) {
+			} else if (pm.press && pm.dir == 'A') {
+				if (pm.yMotion == 0 && pm.canJump) {
 					g.drawImage(leftFrame1, pm.player.x - 10, pm.player.y - 10, null);
 				} else {
 					g.drawImage(leftJump, pm.player.x - 10, pm.player.y - 10, null);
 				}
-			} else if (pm.press == true && pm.dir == 'D') {
-				if (pm.yMotion == 0 && pm.canJump == true) {
+			} else if (pm.press && pm.dir == 'D') {
+				if (pm.yMotion == 0 && pm.canJump) {
 					g.drawImage(rightFrame1, pm.player.x, pm.player.y - 10, null);
 				} else {
 					g.drawImage(rightJump, pm.player.x, pm.player.y - 10, null);
@@ -166,16 +175,11 @@ public class Graphic {
 			}
 
 			g.setColor(Color.black);
-			g.setFont(new Font("Arial,", 1, 20));
+			g.setFont(new Font("Courier New", 1, 20));
 			g.drawString("Deaths: " + pm.deathCount, 30, 30);
 			g.drawString("Level: " + pm.levelCount, 30, 50);
 
-			if (pm.ticks - pm.clearTicks < 100 && pm.ticks > 100) {
-				g.setColor(Color.RED);
-				g.setFont(new Font("Arial,", 1, 40));
-				g.drawString("Level " + (pm.levelCount - 1) + " Cleared", 700, 400);
-			}
-			if (pm.ticks - pm.clearTicks < 400 && pm.levelCount == 10) {
+			if (pm.ticks - pm.clearTicks < 300 && pm.levelCount == 10) {
 				g.drawImage(redFieldInfo, 600, 300, null);
 			}
 		}

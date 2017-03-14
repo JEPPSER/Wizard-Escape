@@ -156,5 +156,19 @@ public class ObjectMovement {
 				}
 			}
 		}
+		
+		// level 12
+		if(pm.levelCount == 12){
+			
+			pm.blueScreen.x = 1600;
+		}
+		
+		// level 13
+		if(pm.levelCount == 13){
+			
+			pm.enter = false;
+			pm.enterCount = 0;
+			pm.levelCount = 0;
+		}
 	}
 }
