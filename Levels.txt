@@ -52,10 +52,11 @@ obstacle,900,550,50,350
 spikes,40,402,1530,11
 [Level 6]
 obstacle,-20,-20,250,700
-obstacle,300,200,200,800
-obstacle,231,750,60,20
+obstacle,370,280,130,800
+obstacle,231,550,70,20
 obstacle,1500,300,150,700
 obstacle,1500,-20,150,200
+obstacle,300,130,100,820
 spikes,250,600,10,8
 spikes,270,500,11,8
 spikes,250,400,10,8
@@ -66,7 +67,7 @@ spikes,1000,15,170,11
 spikes,530,785,950,10
 spikes,240,15,100,11
 [Level 7]
-obstacle,231,750,1300,20
+obstacle,231,750,1300,1000
 obstacle,1500,100,150,800
 spikes,-20,15,1500,11
 spikes,900,15,200,11
