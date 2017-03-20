@@ -22,16 +22,23 @@ public class Collision {
 
 		// Obstacles
 		for (int i = 0; i < pm.obstacle.size(); i++) {
-
-			if (pm.player.y + pm.player.height >= pm.floor.y) {
+			
+			// Floor
+			if (pm.player.y + pm.player.height >= pm.floor.y &&
+					pm.player.x < pm.floor.x + pm.floor.width &&
+						pm.player.x + pm.player.width > pm.floor.x) {
+				
 				pm.player.y = pm.floor.y - 1 - pm.player.height;
 				pm.yMotion = 0;
 				pm.canJump = true;
 			}
+			// Wall
 			if (pm.player.x < pm.wall.x + pm.wall.width) {
 				pm.player.x = pm.wall.x + pm.wall.width + 1;
 			}
-			if (pm.player.y < pm.roof.y + pm.roof.height) {
+			// Roof
+			if (pm.player.intersects(pm.roof)) {
+				
 				pm.player.y = pm.roof.y + pm.roof.height + 1;
 				pm.yMotion = 0;
 			}

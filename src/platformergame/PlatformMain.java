@@ -92,6 +92,7 @@ public class PlatformMain implements ActionListener {
 		jframe.add(renderer);
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jframe.setSize(WIDTH, HEIGHT);
+		jframe.setLocationRelativeTo(null);
 		jframe.addKeyListener(controls.kl);
 		jframe.addMouseListener(controls.ml);
 		jframe.setResizable(false);

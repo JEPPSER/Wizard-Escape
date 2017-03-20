@@ -36,7 +36,7 @@ public class Movement {
 			}
 
 			// Level clear
-			if (pm.player.y + pm.player.height < 0 || pm.player.x + pm.player.width > pm.WIDTH || pm.levelCount == 0) {
+			if (pm.player.x + pm.player.width > pm.WIDTH || pm.levelCount == 0) {
 
 				pm.levelCount++;
 				pm.clearTicks = pm.ticks;

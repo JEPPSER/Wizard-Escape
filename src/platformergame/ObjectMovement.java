@@ -14,7 +14,7 @@ public class ObjectMovement {
 		// level 5
 		if (pm.levelCount == 5) {
 
-			if (pm.spikes.get(0).y < 700 && pm.spikesDown == true) {
+			if (pm.spikes.get(0).y < 700 && pm.spikesDown) {
 				pm.spikes.get(0).y += 3;
 			} else {
 

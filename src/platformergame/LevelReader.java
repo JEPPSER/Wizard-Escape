@@ -13,22 +13,20 @@ public class LevelReader {
 	public LevelReader(PlatformMain platform) {
 
 		pm = platform;
-		
+
 	}
 
 	public void getLevel(int level) {
 
 		try {
-			
-			if (level == 1){
+
+			if (level == 1) {
 				scan = new Scanner(new File(".\\Levels.txt"));
 				scan.nextLine();
-			}	
+			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-		
 
 		String result;
 
